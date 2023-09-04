@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-
+	
 my $one = "(()=({}.{})=~/()/)";
 my $zero = "(()=({})=~/^\$/)";
 
@@ -15,8 +15,6 @@ sub number {
 	my @expression = ($one) x $n;
 	return join("+", @expression);
 }
-
-my %map;
 
 sub from_string {
 	my ($s) = @_;
@@ -37,4 +35,7 @@ sub from_string {
 	return join("", @encoded_chars);
 }
 
-print "eval(" . from_string('print "test";') . ");";
+if (@ARGV) {
+	my $stdin = shift @ARGV;
+	print "eval(" . from_string($stdin) . ");";
+}

@@ -1,0 +1,15 @@
+# Created by https://www.toptal.com/developers/gitignore/api/perl6
+# Edit at https://www.toptal.com/developers/gitignore?templates=perl6
+
+### Perl6 ###
+# Gitignore for Perl 6 (http://www.perl6.org)
+# As part of https://github.com/github/gitignore
+
+# precompiled files
+.precomp
+lib/.precomp
+
+# ignore output file
+output.pl
+
+# End of https://www.toptal.com/developers/gitignore/api/perl6
