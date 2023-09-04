@@ -2,7 +2,7 @@
 
 ## Overview
 
-The PerlFuck Compiler is a simple Perl script that translates a string of code into a series of Perl expressions. It is designed to be a and educational project that pushes the limits of the language.
+The PerlFuck Compiler is a simple Perl script that translates a string of code into a series of Perl expressions. It is designed to be an educational project that pushes the limits of the language.
 
 ## Prerequisites
 
