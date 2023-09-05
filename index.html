@@ -23,48 +23,13 @@
 			<div class="col-md-6">
 				<h3>Output PerlFuck Code</h3>
 				<textarea class="form-control" name="perlfuckCode" id="perlfuckCode" rows="10" placeholder="({/.=~+})" readonly></textarea>
-				<button class="btn btn-success mt-3" name="downloadButton" id="downloadButton">Download</button>
-				<button class="btn btn-secondary mt-3" name="copyButton" id="copyButton">Copy to Clipboard</button>
+				<button class="btn btn-success mt-3" name="downloadButton" id="downloadButton" onclick="downloadFile()">Download</button>
+				<button class="btn btn-secondary mt-3" name="copyButton" id="copyButton" onclick="copyToClipboard()">Copy to Clipboard</button>
 			</div>
 		</div>
 	</div>
 
-	<script>
-		
-		const one = "(()=({}.{})=~/()/)";
-		const zero = "(()=({})=~/^$/)";
-
-		function number(n) {
-		    if (n === 0) {
-			return 0;
-		    }
-
-		    const expression = new Array(n).fill(one);
-		    return expression.join("+");
-		}
-
-		function fromString(s) {
-		    const chars = s.split("");
-		    const encodedChars = [];
-		    let loopCounter = 0;
-		    chars.forEach((char, index) => {
-			const charCode = char.charCodeAt(0);
-			encodedChars.push(`chr(${number(charCode)})`);
-			    console.log(encodedChars);
-			if (loopCounter < chars.length - 1) {
-			    encodedChars.push(".");
-			}
-			loopCounter += 1;
-		    });
-
-			return "eval(" + encodedChars.join("") + ");";
-		}
-
-		function convertCode() {
-			const perlCode = document.getElementById("perlCode").value;
-			const convertedCode = fromString(perlCode);
-			document.getElementById("perlfuckCode").value = convertedCode;
-		}
-	</script>
+	<script src="perlfuck.js"></script>
+	<script src="buttons.js"></script>
 </body>
 </html>
