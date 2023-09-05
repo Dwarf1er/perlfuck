@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PerlFuck</title>
+    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<div class="container">
+		<h1 class="display-3">PerlFuck ({/.=~+})</h1>
+		<p>Using only 9 characters to write and execute Perl code</p>
+	</div>
+	<hr>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Input Perl Code</h3>
+				<textarea class="form-control" name="perlCode" id="perlCode" rows="10" placeholder="Paste in your Perl code!"></textarea>
+				<button id="convertButton" class="btn btn-primary mt-3" onclick="convertCode()">Convert</button>
+			</div>
+			<div class="col-md-6">
+				<h3>Output PerlFuck Code</h3>
+				<textarea class="form-control" name="perlfuckCode" id="perlfuckCode" rows="10" placeholder="({/.=~+})" readonly></textarea>
+				<button class="btn btn-success mt-3" name="downloadButton" id="downloadButton">Download</button>
+				<button class="btn btn-secondary mt-3" name="copyButton" id="copyButton">Copy to Clipboard</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		
+		const one = "(()=({}.{})=~/()/)";
+		const zero = "(()=({})=~/^$/)";
+
+		function number(n) {
+		    if (n === 0) {
+			return 0;
+		    }
+
+		    const expression = new Array(n).fill(one);
+		    return expression.join("+");
+		}
+
+		function fromString(s) {
+		    const chars = s.split("");
+		    const encodedChars = [];
+		    let loopCounter = 0;
+		    chars.forEach((char, index) => {
+			const charCode = char.charCodeAt(0);
+			encodedChars.push(`chr(${number(charCode)})`);
+			    console.log(encodedChars);
+			if (loopCounter < chars.length - 1) {
+			    encodedChars.push(".");
+			}
+			loopCounter += 1;
+		    });
+
+			return "eval(" + encodedChars.join("") + ");";
+		}
+
+		function convertCode() {
+			const perlCode = document.getElementById("perlCode").value;
+			const convertedCode = fromString(perlCode);
+			document.getElementById("perlfuckCode").value = convertedCode;
+		}
+	</script>
+</body>
+</html>
