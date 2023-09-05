@@ -12,7 +12,9 @@ Before using the PerlFuck Transpiler, make sure you have the following prerequis
 
 ## Usage
 
-To use the PerlFuck Transpiler, follow these steps:
+There are 2 ways to use PerlFuck! You can either go to the [web converter](https://antoinepoulin.com/perlfuck) or follow the steps below for the CLI tool:
+
+To use the PerlFuck Transpiler in the CLI, follow these steps:
 
 1. Clone or download the repository to your local machine.
 2. Open a terminal or command prompt and navigate to the directory containing the `perlfuck.pl` script.
